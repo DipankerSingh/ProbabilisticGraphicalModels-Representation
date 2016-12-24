@@ -57,9 +57,55 @@ genotypeFactor = struct('var', [], 'card', [], 'val', []);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
 % Fill in genotypeFactor.var.  This should be a 1-D row vector.
+genotypeFactor.var = [genotypeVarChild,genotypeVarParentOne,genotypeVarParentTwo];
 % Fill in genotypeFactor.card.  This should be a 1-D row vector.
+genotypeFactor.card = [size(genotypesToAlleles,1),size(genotypesToAlleles,1),size(genotypesToAlleles,1)];
 
 genotypeFactor.val = zeros(1, prod(genotypeFactor.card));
 % Replace the zeros in genotypeFactor.val with the correct values.
+for i = 1 : numAlleles
+  for j = 1 : numAlleles
+    for k = 1: numAlleles
+      for l = 1: numAlleles
+        for m = 1:numAlleles
+          for n = 1:numAlleles
+            temp1 = [0];
+            temp2 = [0];
+            temp3 = [0];
+            temp4 = [0];
+            if m == i
+              temp1(1) = temp1(1) + 1;
+            end
+            if m == j 
+              temp1(1) = temp1(1) + 1;
+            end
+            if m == k
+              temp2(1) = temp2(1) + 1;
+            end
+            if m == l 
+              temp2(1) = temp2(1) + 1;
+            end
+            if n == i
+              temp3(1) = temp3(1) + 1;
+            end
+            if n == j 
+              temp3(1) = temp3(1) + 1;
+            end
+            if n == k
+              temp4(1) = temp4(1) + 1;
+            end
+            if n == l 
+              temp4(1) = temp4(1) + 1;
+            end
+            genotypeFactor.val(1,((allelesToGenotypes(i,j) - 1)*size(genotypesToAlleles,1)*size(genotypesToAlleles,1)) + ((allelesToGenotypes(k,l)-1)*size(genotypesToAlleles,1)) + allelesToGenotypes(m,n)) = ((temp1(1)/2)*(temp4(1)/2)) + ((temp2(1)/2)*(temp3(1)/2)); 
+            if m == n
+            genotypeFactor.val(1,((allelesToGenotypes(i,j) - 1)*size(genotypesToAlleles,1)*size(genotypesToAlleles,1)) + ((allelesToGenotypes(k,l)-1)*size(genotypesToAlleles,1)) + allelesToGenotypes(m,n)) = genotypeFactor.val(1,((allelesToGenotypes(i,j) - 1)*size(genotypesToAlleles,1)*size(genotypesToAlleles,1)) + ((allelesToGenotypes(k,l)-1)*size(genotypesToAlleles,1)) + allelesToGenotypes(m,n))/2;  
+            end
+          end
+        end
+      end
+    end
+  end
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
