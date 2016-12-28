@@ -8,7 +8,29 @@ Further information of genetic, allele, and inheritance please see PA2Appendix.p
 The codes are written by Octave.  
 For further info of Octave please see http://www.gnu.org/software/octave/
 
-In this assignment set, a small Bayesian network for evaluating client's credit will be created.  
+Genetic counselors want help in advising couples with a family history of a genetic disease. Specifically, they
+want to help such couples decide whether to have a biological child or to adopt by assessing the
+probability that their un-born child will have the disease. Through this assignment, 
+I observed how Bayesian networks can be used to determine such probabilities through 
+modeling the mechanism of genetic inheritance.
+During this assignment, I have used genetic information to predict the probability that a
+person will have a physical trait. Many human physical traits, such as freckles, hair color, and
+many diseases are regulated by one or more proteins. These proteins are coded for by genes,
+which are sequences of DNA that are found in every cell and passed down from generation to
+generation. Each gene can have multiple alleles, which are different versions of the gene. For
+example, a gene involved in hair color might have an allele that makes a person’s hair brown
+and another allele that makes the person’s hair red. Genetic inheritance patterns are generally
+consistent from generation to generation, so ***template models*** are a natural way to model
+them. 
+
+***Screenshots:***
+**Cystic Fibrosis BayesNet**
+![cysticfibrosisbayesnet](https://cloud.githubusercontent.com/assets/15040734/21528756/dc03f038-cd5a-11e6-80f5-b30379b671df.png)
+**Cystic Fibrosis Decoupled BayesNet**
+![cysticfibrosisdecoipledbns](https://cloud.githubusercontent.com/assets/15040734/21528790/0f9a35f6-cd5b-11e6-812f-502cd18383dd.png)
+**Spinal Muscular Astrophy(Traits Caused by Multiple Genes) Bayes Net**
+![spinalmuscularstrophybayesnet screenshot](https://cloud.githubusercontent.com/assets/15040734/21528878/8be8f872-cd5b-11e6-92a0-a901bce28df0.png)
+
 This set include the following functions:
 
 1. AssignmentToIndex.m - Converts an assignment, A, over variables with cardinality D to an index 
