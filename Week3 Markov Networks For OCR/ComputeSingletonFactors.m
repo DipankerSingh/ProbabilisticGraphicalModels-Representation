@@ -23,6 +23,11 @@ n = length(images);
 % Preallocate the array of factors
 factors = repmat(struct('var', [], 'card', [], 'val', []), n, 1);
 
+for i = 1:n
+  factors(i,1).val = ComputeImageFactor(images(i).img,imageModel);
+  factors(i,1).card = imageModel.K;
+  factors(i,1).var = i;
+end
 % Your code here:
 
 end
