@@ -27,5 +27,16 @@ end
 factors = repmat(struct('var', [], 'card', [], 'val', []), n - 1, 1);
 
 % Your code here:
+for i = 1:n-1
+  factors(i,1).var = [i ,i+1];
+  factors(i,1).card = [K ,K];
+  temp = [1] ;
+  for j = 1:K
+    for l = 1:K
+      factors(i,1).val(AssignmentToIndex([j l],factors(i,1).card)) = pairwiseModel(j,l);
+      temp(1) = temp(1) + 1;
+    end
+  end
+end
 
 end
