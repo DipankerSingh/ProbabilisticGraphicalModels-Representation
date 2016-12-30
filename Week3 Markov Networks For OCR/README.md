@@ -11,24 +11,40 @@ In this assignment, applied the graphical model framework to the task of optical
 The goal is to accept as input an image of text and output the text content itself.
 A small Markov network for OCR will be created.
 
+**In this assignment, the effect of considering different types of factor for the Markov Network on *Word Accuracy and 
+Character Accuracy* was observed**
+
+The ***character level accuracy*** is simply the number of correctly identified characters divided by the total number of characters.
+The ***word accuracy*** is the number of words in which every character is correctly identified divided by the total number of words.
+
 **Types of Factors and Markov Network considered:**
 
 **1)For Singleton Factors**
 
 ![image](https://cloud.githubusercontent.com/assets/15040734/21570503/99977c90-ceec-11e6-80e0-7831db678d72.png)
 
+**Character Accuracy: 76.7%  and Word Accuracy: 22.0%** 
+
 **2)For Pairwise Factors**
 
 ![image](https://cloud.githubusercontent.com/assets/15040734/21570527/c35dd5ba-ceec-11e6-8eef-58453c71002c.png)
+
+**Character Accuracy: 79.16%  and Word Accuracy: and 26.0%**
 
 **3)For Triplet Factors**
 
 ![image](https://cloud.githubusercontent.com/assets/15040734/21570536/d1c16ed2-ceec-11e6-92b9-6ef71a2cacb5.png)
 
+**Character Accuracy: 80.03% and Word Accuracy: 34.0%**
+
 **4)Image Similarity Factors**
 
 Add edge between each pair of Nodes. 
 
+**Character Accuracy: 81.62%  and Word Accuracy: 37.0%**
+
+-a significant improvement over our starting word accuracy of 22.0%!
+================================================
 This set include the following functions:
 
 1.ComputeImageFactor.m: a function that scores the match between
